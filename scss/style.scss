@@ -1,0 +1,649 @@
+@font-face {
+  src: url("../fonts/Oswald-Regular.ttf");
+  font-family: "Oswald";
+  font-weight: normal;
+}
+
+@font-face {
+  src: url("../fonts/Oswald-Bold.ttf");
+  font-family: "Oswald";
+  font-weight: bold;
+}
+
+@font-face {
+  src: url("../fonts/Oswald-Light.ttf");
+  font-family: "Oswald";
+  font-weight: 200;
+}
+
+$lightGrey: #eeeeee;
+$pink: #ff5953;
+$lagoon: #69f0ae;
+$white: white;
+$black: #2d2d2a;
+$darkGrey: #333333;
+$orange : $lagoon;
+
+
+
+body {
+  font-family: 'Oswald', sans-serif;
+  font-size: 16px;
+  color: #303030;
+  background-color: $black;
+  overflow-x: hidden;
+}
+
+.flexRow,
+.flexColumn {
+  display: flex;
+}
+
+.flexRow {
+  flex-direction: row;
+}
+
+.flexColumn {
+  flex-direction: column;
+}
+
+.flex1 {
+  flex: 1;
+}
+
+.flexWrap {
+  flex-wrap: wrap;
+}
+
+.justifyCenter {
+  justify-content: center;
+}
+
+.justifySpaceAround {
+  justify-content: space-around;
+}
+
+.alignItemsCenter {
+  align-items: center;
+}
+
+.flexBasis80 {
+  flex-basis: 80%;
+}
+
+.flexBasis100 {
+  flex-basis: 100%;
+}
+
+.perfectCenter {
+  @extend .justifyCenter;
+  @extend .alignItemsCenter;
+}
+
+.mainSection {
+  min-height: 80vh;
+  padding: 40px 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+header {
+  position: fixed;
+  width: 100%;
+  background-color: $black;
+  background-size: cover;
+  z-index: 10;
+  box-shadow: 0px 3px 5px rgba(100, 100, 100, 0.49);
+  transition: all 0.3s ease-in-out;
+
+  .title, .titleSmall {
+    text-align: center;
+    color: $white;
+    font-size: 1.8em;
+    font-weight: bold;
+    margin-bottom: 7px;
+    strong {
+      color: $pink;
+      font-weight: normal;
+      font-size: 0.55em;
+      margin-top: 4px;
+      margin-bottom: 10px;
+    }
+  }
+
+  .titleSmall, .smallDeviceMenu {
+    display: none;
+  }
+
+  nav {
+    li {
+      margin-right: 15px;
+      a {
+        position: relative;
+        color: $white;
+        transition: all 0.2s ease-in-out;
+        z-index: 10;
+        &:hover {
+          color: $pink;
+          text-decoration: none;
+        }
+        &:focus {
+          color: $white;
+          outline: none;
+          text-decoration: none;
+        }
+        &:before {
+          position: absolute;
+          content: "";
+          width: 100%;
+          height: 2px;
+          background-color: $lagoon;
+          bottom : -2px;
+          transition: all 0.4s ease-in-out;
+          transform: scale(0);
+        }
+      }
+      .activeLink {
+        color: $pink;
+        &:before {
+          transform: scale(1);
+        }
+        &:focus {
+          color: $pink;
+        }
+      }
+    }
+  }
+}
+
+.home {
+  background-color: $lagoon;
+  min-height: 100vh;
+  div {
+    background-color: $white;
+    width: 800px;
+    height: 500px;
+    margin: 10% auto 30px auto;
+    box-shadow: 0px 3px 5px rgba(100, 100, 100, 0.49);
+    position: relative;
+    cursor: pointer;
+    p {
+      text-align: center;
+      font-size: 4.4em;
+      color: $pink;
+    }
+    img {
+      position: absolute;
+      top: -5px;
+    }
+  }
+
+
+}
+
+.latestWork {
+  // background-color: $lightGrey;
+  background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+  font-weight: bold;
+  height: calc(100vh + 160px);
+  padding: 80px 0;
+}
+
+.work {
+  display: none;
+  position: relative;
+  margin: 0 1% 5% 1%;
+  width: 330px;
+  color: $white;
+  background-color: $black;
+  box-shadow: 0px 5px 5px rgba(100, 100, 100, 0.49);
+}
+
+.workInfo {
+  position: absolute;
+  z-index: 2;
+  background-color: rgba(45,45,42, 0.965);
+  display: none;
+  width: 100%;
+  height: 100%;
+  padding: 0 3px;
+  cursor: pointer;
+  h2 {
+    text-align: center;
+    margin: 35px 0 20px 0;
+    color: $pink;
+    font-size: 1.2em;
+  }
+  li {
+    margin-top: 4px;
+    margin-right: 7%;
+    font-size: 0.96em;
+    letter-spacing: 1px;
+    font-weight: normal;
+    span {
+      font-size: 0.96em;
+      color: $lagoon;
+    }
+  }
+}
+
+
+
+.skills {
+  background-color: $lagoon;
+  h1 {
+    color: $black;
+    display: none;
+  }
+  div {
+      display: none;
+      box-shadow: 0px 7px 7px rgba(100, 100, 100, 0.49);
+      width: 46%;
+      padding: 35px 0;
+      background-color: $white;
+      color: $pink;
+      height: 500px;
+      &:first-child {
+        margin-right: 5px;
+      }
+      &:last-child {
+        background-color: $lightGrey;
+        margin-left: 5px;
+    }
+    ul {
+      margin-left: 25%;
+      margin-top: 20px;
+      li {
+        p {
+          margin-top: 7px;
+          color: $white;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+
+
+.aboutMe {
+  background-color: $lagoon;
+  section {
+    display: none;
+    height: 500px;
+    background-color: $black;
+    margin-right: 15px;
+    box-shadow: 0px 7px 7px rgba(100, 100, 100, 0.49);
+    h3 {
+      color: $pink;
+      text-align: center;
+      font-size: 1.9em;
+      margin-bottom: 35px;
+    }
+  }
+  .firstSectionAboutMe {
+    width: 550px;
+    padding: 35px 65px;
+  }
+  .lastChildSectionAboutMe {
+    background-color: $white;
+    width: 400px;
+    padding: 35px 45px;
+  }
+}
+
+.liTitle {
+  list-style: square;
+  margin-bottom: 25px;
+  color: $lagoon;
+  ul {
+    margin-top: 10px;
+  }
+  li {
+    list-style: initial;
+    color: $white;
+    font-size: 0.95em;
+  }
+}
+
+.contact {
+  background-color: $white;
+  .blackContainer {
+    position: relative;
+    background-color: $black;
+    width: 500px;
+    height: 500px;
+    box-shadow: 0px 7px 7px rgba(100, 100, 100, 0.49);
+  }
+
+  .formContainer {
+    overflow: visible !important;
+    position:absolute;
+    background-color: $lagoon;
+    top: 40px;
+    left: -40px;
+    width: 4px;
+    height: 420px;
+    z-index: 2;
+  }
+
+  h3 {
+    display: none;
+  }
+
+  //animation des bars de la fermeture du formulaire
+
+  .closeFormContainer {
+    display: none;
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background-color: $white;
+    right: -30px;
+    top: 16px;
+  }
+
+  .closeFormContainer::before, .closeFormContainer::after {
+    content: "";
+    position: absolute;
+    background-color: #ed6a5a;
+    animation-duration: 0.4s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: both;
+  }
+
+  .closeFormContainer::before {
+    height: 4px;
+    width : 20px;
+    animation-name: retour1;
+  }
+
+  .closeFormContainer::after {
+    animation-name: retour2;
+    height: 20px;
+    width : 4px;
+  }
+
+  .changeBar::before {
+    animation-name: rotate1;
+  }
+
+  .changeBar::after {
+    animation-name: rotate2;
+  }
+
+  .buttonCloseForm {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: 15px;
+    left: 15px;
+    cursor: default;
+  }
+
+  .form {
+    width: 300px;
+    display: none;
+    padding: 0 30px;
+  }
+
+  input {
+    margin-top: 15px;
+    width: 250px;
+  }
+
+  textarea {
+    margin-top: 15px;
+    width: 250px;
+    height: 100px;
+    resize: none;
+    font-size: 0.98em;
+  }
+
+  .submit {
+    display: none;
+    background-color: $black;
+    border: none;
+    color: $white;
+    height: 40px;
+    width: 100px;
+    margin-top: 15px;
+  }
+
+  .contactContainer {
+    background-color: $pink;
+    width: 0;
+    height: 0;
+    position: absolute;
+    left: 260px;
+    top: 260px;
+    color: $white;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    padding-right: 35px;
+    p {
+      display: none;
+    }
+    a {
+      display: none;
+      color: $white;
+    }
+  }
+
+  .smallDeviceFormContainer {
+    display: none;
+  }
+}
+
+@keyframes retour1 {
+  0% { transform: rotate(45deg); left: 20px; top: 28px;  background-color: black;}
+  100% { transform: rotate(-180deg);left: 0; top: 0; background-color: $pink;}
+}
+
+@keyframes retour2 {
+  0% {  transform: rotate(45deg); right: 28px; bottom: 20px; background-color: black;}
+  100% { transform: rotate(360deg); ; right: 0; bottom: 0; background-color: $pink;}
+}
+
+@keyframes rotate1 {
+  0% {  transform: rotate(0deg); left: 0; top: 0; background-color: #ed6a5a;}
+  100% { transform: rotate(135deg); left: 20px; top: 28px; background-color: black;}
+}
+
+@keyframes rotate2 {
+  0% {  transform: rotate(0deg); right: 0; bottom: 0; background-color: #ed6a5a;}
+  100% { transform: rotate(135deg); right: 28px; bottom: 20px; background-color: black;}
+}
+
+
+footer {
+  height: 100px;
+  p {
+    color: $lightGrey;
+    }
+}
+
+/* Media Queries */
+
+
+@media all and (max-width: 980px) {
+
+  .home {
+    height: auto;
+
+    div {
+      margin: 60px auto 30px auto;
+      width: 90%;
+      min-height: 80vh;
+      background: url("../links/moi.png") center bottom no-repeat fixed;
+    }
+
+    canvas {
+      display: none;
+    }
+  }
+
+  .latestWork {
+    height: auto;
+
+    section {
+      margin: 15px;
+    }
+  }
+
+  .skills, .aboutMe {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+  }
+
+  .skills{
+
+    div {
+      margin: 15px 0 !important;
+      width: 75%;
+    }
+
+    ul {
+      margin-left: 5%;
+    }
+  }
+
+  .firstSectionAboutMe, .lastChildSectionAboutMe {
+    margin: 5px auto !important;
+    padding: 0;
+    overflow: auto;
+    width: 75% !important;
+    height: auto;
+  }
+
+  .firstSectionAboutMe {
+
+    ul {
+      padding: 0;
+    }
+  }
+
+}
+
+@media all and (max-width: 620px) {
+
+  header {
+    height: 70px;
+    flex-direction: row !important;
+    background-color: $pink;
+    justify-content: flex-end !important;
+
+    .titleSmall {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 11;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 70px;
+      background-color: $black;
+      color: $white;
+      padding: 2px 7px;
+      box-shadow: 0px 7px 7px rgba(100, 100, 100, 0.49);
+      margin: 0 !important;
+      .spanBlue {
+        color: $lagoon;
+      }
+      strong {
+        margin-left: 8px;
+        margin-top: 20px;
+      }
+    }
+
+    .smallDeviceMenu {
+      display: block;
+      color: $white;
+      font-size:  1.9em;
+      padding: 5px 10px;
+      margin-right: 15px;
+      cursor: pointer;
+
+      ul {
+        display: none;
+        flex-direction: column;
+        position : absolute;
+        top: 69px;
+        right: 0;
+        padding: 0;
+        background-color: $black;
+        box-shadow: 0px 7px 7px rgba(100, 100, 100, 0.49);
+      }
+
+      li {
+        text-align: right;
+        padding: 2px 10px;
+      }
+
+      a {
+        color: $white;
+        font-size: 0.78em;
+      }
+    }
+
+    .mediumDevice {
+      display: none;
+    }
+  }
+
+  .skills{
+    div {
+      margin: 15px 0 !important;
+      width: 95%;
+      ul {
+        margin-left: 0;
+      }
+    }
+  }
+
+  .firstSectionAboutMe, .lastChildSectionAboutMe {
+    margin: 5px auto !important;
+    padding: 0;
+    overflow: auto;
+    width: 95% !important;
+    height: auto;
+  }
+
+  .blackContainer {
+    display: none;
+  }
+
+  .smallDeviceFormContainer {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 95%;
+    .formSmallDevice, .contactContainerSmallDevice {
+      color: $black;
+      width: 90%;
+
+      input[type=submit] {
+          background-color: $black;
+          border: none;
+          color: $white;
+          height: 40px;
+          width: 100px;
+          margin: 15px 0;
+      }
+    }
+
+    a {
+      color: $black;
+      text-shadow: none;
+    }
+  }
+
+}
